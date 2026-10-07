@@ -1,6 +1,6 @@
-price = int(input("Цена одной тетради (целые рубли): "))
+price = int(input("Цена одной тетради: "))
 count = int(input("Количество тетрадей: "))
-paid = int(input("Переданная сумма (рубли): "))
+paid = int(input("Переданная сумма: "))
 
 cost = price * count
 change = paid - cost
