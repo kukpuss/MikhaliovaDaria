@@ -143,3 +143,53 @@ variant.py         n=3, 1, 3, 5            0, 0                   0, 0
 2             2          1            3 
 3             3          3            6 
 4             4          6            10 
+   ## 5 лабораторная 
+Файл           Проверка                      Ожидание                              Статус
+normalize.py   " Один два "                  длины 14 -> 8, "Один два", слов 2     OK
+normalize.py   ""                            длины 0 -> 0,слов 0                   OK
+palindrome.py  "А роза упала на лапу Азора"  Палиндром                             OK
+palindrome.py  " "                           Нет текста                            OK
+palindrome.py  "А!"                          Не палиндром                          OK
+replace.py     "a::b:"                       замен 3, "a--b-"                      OK
+replace.py     "abc"                         замен 0, "abc"                        OK
+variant.py     "Анна, армия!"                анна, армия, Кол-во:2                 OK
+variant.py     "" / "!!!"                    Нет совпадений, кол-во:0              OK
+variant.py     "Армия, Анна! арбуз ананас.." 4 слова, Кол-во:4                     OK
+   ## 6 лабораторная
+Файл          Проверка          Ожидание                                                      Статус
+statistics.py "-2 0 5 3"        Кол-во:4, сумма:6, минимум:-2, максимум:5, среднее:1.50       OK
+statistics.py "8"               Кол-во:1, сумма:8, минимум:8, максимум:8, среднее:8.00        OK
+statistics.py ""                Нет данных                                                    OK
+transform.py  "-2 0 5 -2"       Исходный [-2, 0, 5, -2], новый [2, 0, 5, 2]                   OK
+transform.py  ""                Исходный [], новый []                                         OK
+positions.py  "3 7 2 7"         [1, 3]                                                        OK
+positions.py  "7 7"             [0, 1]                                                        OK
+positions.py  "-3 -1 -2"        [1]                                                           OK
+positions.py  ""                Нет данных                                                    OK
+variant.py    "-8 -3 0 6 6 1"   Выборка [-8, 0, 6, 6], Кол-во:4, сумма:4, копия [-8, 0, 6, 6] OK
+variant.py    "" / "1 3 5 -7"   Выборка [], Кол-во:0, сумма:0, копия []                       OK
+variant.py    "8 3 -4 5 2 -1 0" Выборка [8, -4, 2, 0], Кол-во:4, сумма:6, копия [-4, 0, 2, 8] OK
+   ## 7 лабораторная
+assert s(0) == 0
+assert s(5) == 5
+assert s(507) == 12
+assert s(-507) == 12
+
+assert a([]) is None
+assert a([2, 4, 6]) == 4
+assert a([5]) == 5
+assert abs(a([1, 2]) - 1.5) < 1e-9
+
+assert n(" ПРИВЕТ Мир ") == "привет мир"
+assert n(" ") == ""
+assert n("") == ""
+assert n("Анна,\tармия!\nЯ") == "анна, армия! я"
+
+base = [-5, 0, 2, 5]
+saved = base.copy()
+
+assert select_numbers(base, 2) == [5]
+assert select_numbers([], 2) == [] 
+assert select_numbers([1, 2, 2, 0, -3], 5) == [] 
+assert select_numbers([-5, 0, 2, 5, 5, 7, 1], 2) == [5, 5, 7] 
+assert select_numbers([8, -1, 3, 10, 0, 3], 3) == [8, 10] 
